@@ -29,7 +29,7 @@ export const charts: ChartsCollection = {
     bar: [
         {
             name: '基础柱状图',
-            description: '展示基本柱状图效果',
+            description: 'Basic Bar',
             component: BasicBar,
             src: 'coverImages/bar/basicBar.png',
             code: basicBar
@@ -38,14 +38,14 @@ export const charts: ChartsCollection = {
     line: [
         {
             name: '基础折线图',
-            description: '展示基本折线图效果',
+            description: 'Basic Line Chart',
             component: BasicLine,
             src: 'coverImages/line/basicLine.png',
             code: basicLine
         },
         {
             name: '堆叠折线图',
-            description: '展示基本折线图效果',
+            description: 'Stacked Line Chart',
             component: StackLine,
             src: 'coverImages/line/stackLine.png',
             code: stackLine
@@ -54,7 +54,7 @@ export const charts: ChartsCollection = {
     scatter: [
         {
             name: '基础散点图',
-            description: '展示基本散点图效果',
+            description: 'Basic Scatter Chart',
             component: BasicScatter,
             src: 'coverImages/scatter/basicScatter.png',
             code: basicScatter
@@ -63,7 +63,7 @@ export const charts: ChartsCollection = {
     pie: [
         {
             name: '基础饼图',
-            description: '展示基本饼图效果',
+            description: 'Basic Pie Chart',
             component: BasicPie,
             src: 'coverImages/pie/basicPie.png',
             code: basicPie
