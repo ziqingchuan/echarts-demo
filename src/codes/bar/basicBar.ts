@@ -10,16 +10,16 @@ export const basicBar = "<template>\n" +
     "import * as echarts from 'echarts';\n" +
     "\n" +
     "const chart = ref<HTMLElement | null>(null);\n" +
-    "const myChart = ref<echarts.ECharts | null>(null);\n" +
+    "let myChart: echarts.ECharts | null = null;\n" +
     "\n" +
     "const handleResize = () => {\n" +
-    "  myChart.value?.resize();\n" +
+    "  myChart?.resize();\n" +
     "};\n" +
     "\n" +
     "onMounted(() => {\n" +
     "  if (!chart.value) return;\n" +
     "\n" +
-    "  myChart.value = echarts.init(chart.value);\n" +
+    "  myChart = echarts.init(chart.value);\n" +
     "  const option = {\n" +
     "    tooltip: {\n" +
     "      trigger: 'axis',\n" +
@@ -53,15 +53,15 @@ export const basicBar = "<template>\n" +
     "    ]\n" +
     "  };\n" +
     "\n" +
-    "  myChart.value.setOption(option);\n" +
+    "  myChart.setOption(option);\n" +
     "  window.addEventListener('resize', handleResize);\n" +
     "});\n" +
     "\n" +
     "onBeforeUnmount(() => {\n" +
-    "  if (myChart.value) {\n" +
+    "  if (myChart) {\n" +
     "    window.removeEventListener('resize', handleResize);\n" +
-    "    myChart.value.dispose();\n" +
-    "    myChart.value = null;\n" +
+    "    myChart.dispose();\n" +
+    "    myChart = null;\n" +
     "  }\n" +
     "});\n" +
     "</script>\n" +

@@ -51,19 +51,27 @@ const props = defineProps({
 }
 
 .detail-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 770px) {
+    display: flex;
+    flex-direction: column;
+  }
   height: calc(100vh - 150px);
   gap: 20px;
 }
 
 .code-panel, .chart-panel {
-  flex: 1;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
+}
+.code-panel {
   overflow: hidden;
+}
+.chart-panel {
+  overflow: auto;
 }
 
 .code {

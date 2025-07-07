@@ -1,6 +1,6 @@
-export const basicScatter = "<template>\n" +
+export const stackLine = "<template>\n" +
     "  <div class=\"chart-wrapper\">\n" +
-    "    <h2>散点图示例</h2>\n" +
+    "    <h2>堆叠折线图</h2>\n" +
     "    <div ref=\"chart\" class=\"chart\"></div>\n" +
     "  </div>\n" +
     "</template>\n" +
@@ -21,48 +21,59 @@ export const basicScatter = "<template>\n" +
     "\n" +
     "  myChart = echarts.init(chart.value);\n" +
     "\n" +
-    "  // 生成模拟数据\n" +
-    "  const data = [];\n" +
-    "  for (let i = 0; i < 100; i++) {\n" +
-    "    data.push([\n" +
-    "      Math.random() * 100,\n" +
-    "      Math.random() * 100,\n" +
-    "      Math.floor(Math.random() * 50) + 10 // 气泡大小\n" +
-    "    ]);\n" +
-    "  }\n" +
-    "\n" +
     "  const option = {\n" +
     "    tooltip: {\n" +
-    "      position: 'top'\n" +
+    "      trigger: 'axis'\n" +
+    "    },\n" +
+    "    legend: {\n" +
+    "      data: ['邮件营销', '联盟广告', '视频广告']\n" +
     "    },\n" +
     "    grid: {\n" +
     "      left: '3%',\n" +
-    "      right: '7%',\n" +
-    "      bottom: '7%',\n" +
+    "      right: '4%',\n" +
+    "      bottom: '3%',\n" +
     "      containLabel: true\n" +
     "    },\n" +
     "    xAxis: {\n" +
-    "      type: 'value',\n" +
-    "      scale: true\n" +
+    "      type: 'category',\n" +
+    "      boundaryGap: false,\n" +
+    "      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']\n" +
     "    },\n" +
     "    yAxis: {\n" +
-    "      type: 'value',\n" +
-    "      scale: true\n" +
+    "      type: 'value'\n" +
     "    },\n" +
-    "    series: [{\n" +
-    "      name: '数据',\n" +
-    "      type: 'scatter',\n" +
-    "      data: data,\n" +
-    "      itemStyle: {\n" +
-    "        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{\n" +
-    "          offset: 0,\n" +
-    "          color: 'rgb(251, 118, 123)'\n" +
-    "        }, {\n" +
-    "          offset: 1,\n" +
-    "          color: 'rgb(204, 46, 72)'\n" +
-    "        }])\n" +
+    "    series: [\n" +
+    "      {\n" +
+    "        name: '邮件营销',\n" +
+    "        type: 'line',\n" +
+    "        stack: '总量',\n" +
+    "        data: [120, 132, 101, 134, 90, 230, 210],\n" +
+    "        smooth: true,\n" +
+    "        lineStyle: {\n" +
+    "          width: 3\n" +
+    "        }\n" +
+    "      },\n" +
+    "      {\n" +
+    "        name: '联盟广告',\n" +
+    "        type: 'line',\n" +
+    "        stack: '总量',\n" +
+    "        data: [220, 182, 191, 234, 290, 330, 310],\n" +
+    "        smooth: true,\n" +
+    "        lineStyle: {\n" +
+    "          width: 3\n" +
+    "        }\n" +
+    "      },\n" +
+    "      {\n" +
+    "        name: '视频广告',\n" +
+    "        type: 'line',\n" +
+    "        stack: '总量',\n" +
+    "        data: [150, 232, 201, 154, 190, 330, 410],\n" +
+    "        smooth: true,\n" +
+    "        lineStyle: {\n" +
+    "          width: 3\n" +
+    "        }\n" +
     "      }\n" +
-    "    }]\n" +
+    "    ]\n" +
     "  };\n" +
     "\n" +
     "  myChart.setOption(option);\n" +

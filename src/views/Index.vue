@@ -85,8 +85,8 @@ const selectChart = (chartComponent: Component, chatCode: string) => {
 }
 
 .chart-type {
-  padding: 12px 15px;
-  margin: 8px 0;
+  padding: 10px;
+  margin-top: 10px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;

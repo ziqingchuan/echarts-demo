@@ -1,12 +1,16 @@
+import type { Component } from "vue";
 import BasicBar from "../charts/bar/basicBar.vue";
 import BasicLine from "../charts/line/basicLine.vue";
+import StackLine from "../charts/line/stackLine.vue";
 import BasicScatter from "../charts/scatter/basicScatter.vue";
-import {basicScatter} from "../codes/scatter/basicScatter.ts";
 import BasicPie from "../charts/pie/basicPie.vue";
-import type { Component } from "vue";
+
 import {basicBar} from "../codes/bar/basicBar.ts";
 import {basicLine} from "../codes/line/basicLine.ts";
+import {stackLine} from "../codes/line/stackLine.ts";
+import {basicScatter} from "../codes/scatter/basicScatter.ts";
 import {basicPie} from "../codes/pie/basicPie.ts";
+
 
 // 定义图表类型
 export type ChartType = 'bar' | 'line' | 'scatter' | 'pie';
@@ -38,6 +42,13 @@ export const charts: ChartsCollection = {
             component: BasicLine,
             src: 'coverImages/line/basicLine.png',
             code: basicLine
+        },
+        {
+            name: '堆叠折线图',
+            description: '展示基本折线图效果',
+            component: StackLine,
+            src: 'coverImages/line/stackLine.png',
+            code: stackLine
         },
     ],
     scatter: [

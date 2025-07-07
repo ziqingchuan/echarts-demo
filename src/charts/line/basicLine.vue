@@ -10,16 +10,16 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import * as echarts from 'echarts';
 
 const chart = ref<HTMLElement | null>(null);
-const myChart = ref<echarts.ECharts | null>(null);
+let myChart: echarts.ECharts | null = null;
 
 const handleResize = () => {
-  myChart.value?.resize();
+  myChart?.resize();
 };
 
 onMounted(() => {
   if (!chart.value) return;
 
-  myChart.value = echarts.init(chart.value);
+  myChart = echarts.init(chart.value);
 
   const option = {
     xAxis: {
@@ -31,22 +31,21 @@ onMounted(() => {
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line',
-        smooth: true
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
       }
     ]
   };
 
-  myChart.value.setOption(option);
+  myChart.setOption(option);
   window.addEventListener('resize', handleResize);
 });
 
 onBeforeUnmount(() => {
-  if (myChart.value) {
+  if (myChart) {
     window.removeEventListener('resize', handleResize);
-    myChart.value.dispose();
-    myChart.value = null;
+    myChart.dispose();
+    myChart = null;
   }
 });
 </script>

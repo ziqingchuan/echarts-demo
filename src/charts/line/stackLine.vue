@@ -1,6 +1,6 @@
 <template>
   <div class="chart-wrapper">
-    <h2>柱状图示例</h2>
+    <h2>堆叠折线图</h2>
     <div ref="chart" class="chart"></div>
   </div>
 </template>
@@ -20,10 +20,13 @@ onMounted(() => {
   if (!chart.value) return;
 
   myChart = echarts.init(chart.value);
+
   const option = {
     tooltip: {
-      trigger: 'axis',
-      axisPointer: { type: 'shadow' }
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['邮件营销', '联盟广告', '视频广告']
     },
     grid: {
       left: '3%',
@@ -33,21 +36,41 @@ onMounted(() => {
     },
     xAxis: {
       type: 'category',
-      data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      boundaryGap: false,
+      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
     },
     yAxis: {
       type: 'value'
     },
     series: [
       {
-        name: '销量',
-        type: 'bar',
-        data: [120, 200, 150, 80, 70, 110],
-        itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#83bff6' },
-            { offset: 1, color: '#188df0' }
-          ])
+        name: '邮件营销',
+        type: 'line',
+        stack: '总量',
+        data: [120, 132, 101, 134, 90, 230, 210],
+        smooth: true,
+        lineStyle: {
+          width: 3
+        }
+      },
+      {
+        name: '联盟广告',
+        type: 'line',
+        stack: '总量',
+        data: [220, 182, 191, 234, 290, 330, 310],
+        smooth: true,
+        lineStyle: {
+          width: 3
+        }
+      },
+      {
+        name: '视频广告',
+        type: 'line',
+        stack: '总量',
+        data: [150, 232, 201, 154, 190, 330, 410],
+        smooth: true,
+        lineStyle: {
+          width: 3
         }
       }
     ]
