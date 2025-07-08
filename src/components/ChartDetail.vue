@@ -50,6 +50,11 @@ watch(() => props.chartCode, highlightCode)
 .chart-detail {
   padding: 20px;
   overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
 }
 
 .back-button {
@@ -86,11 +91,16 @@ watch(() => props.chartCode, highlightCode)
 }
 .code-panel {
   overflow: hidden;
-  min-height: 300px;
+  min-height: 500px;
 }
 .chart-panel {
   overflow: auto;
-  min-height: 300px;
+  min-height: 500px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
 }
 
 .code {
@@ -105,11 +115,12 @@ h2 {
 }
 
 pre {
-  background: #f6f8fa;
-  padding: 16px;
-  border-radius: 6px;
   overflow: auto;
-  height: calc(100% - 60px);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
 }
 
 code {
