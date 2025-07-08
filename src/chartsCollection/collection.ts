@@ -1,11 +1,13 @@
 import type { Component } from "vue";
 import BasicBar from "../charts/bar/basicBar.vue";
+import AxisAlignwithTick from "../charts/bar/axisAlignwithTick.vue";
 import BasicLine from "../charts/line/basicLine.vue";
 import StackLine from "../charts/line/stackLine.vue";
 import BasicScatter from "../charts/scatter/basicScatter.vue";
 import BasicPie from "../charts/pie/basicPie.vue";
 
 import {basicBar} from "../codes/bar/basicBar.ts";
+import {axisAlignwithTick} from "../codes/bar/axisAlignwithTick.ts";
 import {basicLine} from "../codes/line/basicLine.ts";
 import {stackLine} from "../codes/line/stackLine.ts";
 import {basicScatter} from "../codes/scatter/basicScatter.ts";
@@ -33,6 +35,13 @@ export const charts: ChartsCollection = {
             component: BasicBar,
             src: 'coverImages/bar/basicBar.png',
             code: basicBar
+        },
+        {
+            name: '坐标轴刻度与标签对齐',
+            description: 'Axis Align with Tick',
+            component: AxisAlignwithTick,
+            src: 'coverImages/bar/axisAlignwithTick.png',
+            code: axisAlignwithTick
         },
     ],
     line: [
