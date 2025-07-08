@@ -1,27 +1,4 @@
-export const stackLine = "<template>\n" +
-    "  <div class=\"chart-wrapper\">\n" +
-    "    <h2>堆叠折线图</h2>\n" +
-    "    <div ref=\"chart\" class=\"chart\"></div>\n" +
-    "  </div>\n" +
-    "</template>\n" +
-    "\n" +
-    "<script setup lang=\"ts\">\n" +
-    "import { ref, onMounted, onBeforeUnmount } from 'vue';\n" +
-    "import * as echarts from 'echarts';\n" +
-    "\n" +
-    "const chart = ref<HTMLElement | null>(null);\n" +
-    "let myChart: echarts.ECharts | null = null;\n" +
-    "\n" +
-    "const handleResize = () => {\n" +
-    "  myChart?.resize();\n" +
-    "};\n" +
-    "\n" +
-    "onMounted(() => {\n" +
-    "  if (!chart.value) return;\n" +
-    "\n" +
-    "  myChart = echarts.init(chart.value);\n" +
-    "\n" +
-    "  const option = {\n" +
+export const stackLine = "const option = {\n" +
     "    tooltip: {\n" +
     "      trigger: 'axis'\n" +
     "    },\n" +
@@ -74,24 +51,4 @@ export const stackLine = "<template>\n" +
     "        }\n" +
     "      }\n" +
     "    ]\n" +
-    "  };\n" +
-    "\n" +
-    "  myChart.setOption(option);\n" +
-    "  window.addEventListener('resize', handleResize);\n" +
-    "});\n" +
-    "\n" +
-    "onBeforeUnmount(() => {\n" +
-    "  if (myChart) {\n" +
-    "    window.removeEventListener('resize', handleResize);\n" +
-    "    myChart.dispose();\n" +
-    "    myChart = null;\n" +
-    "  }\n" +
-    "});\n" +
-    "</script>\n" +
-    "\n" +
-    "<style scoped>\n" +
-    ".chart {\n" +
-    "  width: 100%;\n" +
-    "  height: 500px;\n" +
-    "}\n" +
-    "</style>"
+    "  };"
