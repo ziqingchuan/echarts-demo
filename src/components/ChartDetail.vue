@@ -8,7 +8,7 @@
       <!-- 代码展示区 -->
       <div class="code-panel">
         <h2>代码实现</h2>
-        <pre class="code"><code>{{ chartCode }}</code></pre>
+        <pre class="code"><code ref="codeBlock">{{ chartCode }}</code></pre>
       </div>
 
       <!-- 图表展示区 -->
@@ -21,18 +21,35 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue';
+import { defineProps, ref, onMounted, watch } from 'vue'
+import hljs from '../utils/highlight.ts'
 
 const props = defineProps({
   chartComponent: Object,
   chartCode: String
-});
+})
 
+const codeBlock = ref<HTMLElement | null>(null)
+
+// 高亮代码函数
+const highlightCode = () => {
+  if (codeBlock.value) {
+    hljs.highlightElement(codeBlock.value)
+  }
+}
+
+// 组件挂载时高亮代码
+onMounted(highlightCode)
+
+// 监听代码变化重新高亮
+watch(() => props.chartCode, highlightCode)
 </script>
 
 <style scoped>
+/* 保持你原有的样式不变 */
 .chart-detail {
   padding: 20px;
+  overflow: auto;
 }
 
 .back-button {
@@ -69,9 +86,11 @@ const props = defineProps({
 }
 .code-panel {
   overflow: hidden;
+  min-height: 300px;
 }
 .chart-panel {
   overflow: auto;
+  min-height: 300px;
 }
 
 .code {
@@ -96,6 +115,7 @@ pre {
 code {
   font-family: 'Courier New', monospace;
   font-size: 14px;
-  line-height: 1.5;
+  font-weight: 600;
 }
+
 </style>
