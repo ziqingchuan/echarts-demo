@@ -1,18 +1,22 @@
 import type { Component } from "vue";
 
+// 柱状图组件
 import BasicBar from "../charts/bar/BasicBar.vue";
 import AxisAlignwithTick from "../charts/bar/AxisAlignwithTick.vue";
-
+import WaterfallChart from "../charts/bar/WaterfallChart.vue";
+import ClickableColumnChart from "../charts/bar/ClickableColumnChart.vue";
+// 折线图组件
 import BasicLine from "../charts/line/BasicLine.vue";
 import StackLine from "../charts/line/StackLine.vue";
 import StackedAreaChart from "../charts/line/StackedAreaChart.vue";
 import FunctionPlot from "../charts/line/FunctionPlot.vue";
-
-
+import DraggablePoints from "../charts/line/DraggablePoints.vue";
+// 散点图组件
 import BasicScatter from "../charts/scatter/BasicScatter.vue";
-
+// 饼图组件
 import BasicPie from "../charts/pie/BasicPie.vue";
-
+import DoughnutChart from "../charts/pie/DoughnutChart.vue";
+// 雷达图组件
 import BasicRadar from "../charts/radar/BasicRadar.vue";
 import AQIRadar from "../charts/radar/AQIRadar.vue";
 
@@ -42,6 +46,18 @@ export const charts: ChartsCollection = {
             component: AxisAlignwithTick,
             chartName: 'AxisAlignwithTick'
         },
+        {
+            name: '瀑布图',
+            description: 'Waterfall Chart',
+            component: WaterfallChart,
+            chartName: 'WaterfallChart'
+        },
+        {
+            name: '可点击的柱状图',
+            description: 'Clickable Column Chart',
+            component: ClickableColumnChart,
+            chartName: 'ClickableColumnChart'
+        },
     ],
     line: [
         {
@@ -68,6 +84,13 @@ export const charts: ChartsCollection = {
             component: FunctionPlot,
             chartName: 'FunctionPlot'
         },
+        {
+            name: '可拖拽点',
+            description: 'Draggable Points',
+            component: DraggablePoints,
+            chartName: 'DraggablePoints'
+        },
+
     ],
     scatter: [
         {
@@ -83,6 +106,12 @@ export const charts: ChartsCollection = {
             description: 'Basic Pie Chart',
             component: BasicPie,
             chartName: 'BasicPie'
+        },
+        {
+            name: '环形图',
+            description: 'Doughnut Chart',
+            component: DoughnutChart,
+            chartName: 'DoughnutChart'
         },
     ],
     radar: [

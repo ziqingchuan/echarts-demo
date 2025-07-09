@@ -1,6 +1,6 @@
 <template>
   <div class="chart-wrapper">
-    <h2>折线图示例</h2>
+    <h2>基础折线图</h2>
     <div ref="chart" class="chart"></div>
   </div>
 </template>

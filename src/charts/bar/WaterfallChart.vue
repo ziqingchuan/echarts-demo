@@ -1,6 +1,6 @@
 <template>
   <div class="chart-wrapper">
-    <h2>基础柱状图</h2>
+    <h2>瀑布图</h2>
     <div ref="chart" class="chart"></div>
   </div>
 </template>
@@ -23,7 +23,13 @@ onMounted(() => {
   const option = {
     tooltip: {
       trigger: 'axis',
-      axisPointer: { type: 'shadow' }
+      axisPointer: {
+        type: 'shadow'
+      },
+      formatter: function (params: any) {
+        const tar = params[1];
+        return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+      }
     },
     grid: {
       left: '3%',
@@ -33,25 +39,43 @@ onMounted(() => {
     },
     xAxis: {
       type: 'category',
-      data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      splitLine: { show: false },
+      data: ['Utilities', 'Transportation', 'Meals', 'Other']
     },
     yAxis: {
       type: 'value'
     },
     series: [
       {
-        name: '销量',
+        name: 'Placeholder',
         type: 'bar',
-        data: [120, 200, 150, 80, 70, 110],
+        stack: 'Total',
         itemStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#83bff6' },
-            { offset: 1, color: '#188df0' }
-          ])
-        }
+          borderColor: 'transparent',
+          color: 'transparent'
+        },
+        emphasis: {
+          itemStyle: {
+            borderColor: 'transparent',
+            color: 'transparent'
+          }
+        },
+        data: [1400, 1200, 300, 0]
+      },
+      {
+        name: 'Life Cost',
+        type: 'bar',
+        stack: 'Total',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [300, 200, 900, 300]
       }
     ]
   };
+
+
 
   myChart.setOption(option);
   window.addEventListener('resize', handleResize);

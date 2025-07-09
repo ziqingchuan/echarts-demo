@@ -1,6 +1,6 @@
 <template>
   <div class="chart-wrapper">
-    <h2>基础饼图</h2>
+    <h2>环形图</h2>
     <div ref="chart" class="chart"></div>
   </div>
 </template>
@@ -22,36 +22,49 @@ onMounted(() => {
   myChart = echarts.init(chart.value);
 
   const option = {
-
     tooltip: {
       trigger: 'item'
     },
     legend: {
-      orient: 'vertical',
-      left: 'left'
+      top: '5%',
+      left: 'center'
     },
     series: [
       {
         name: 'Access From',
         type: 'pie',
-        radius: '50%',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        padAngle: 3,  // 圆弧间隔
+        itemStyle: {
+          borderRadius: 10, // 圆角弧度
+        },
+        label: {
+          show: false,
+          position: 'center'
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: 40,
+            fontWeight: 'bold'
+          }
+        },
+        labelLine: {
+          show: false
+        },
         data: [
           { value: 1048, name: 'Search Engine' },
           { value: 735, name: 'Direct' },
           { value: 580, name: 'Email' },
           { value: 484, name: 'Union Ads' },
           { value: 300, name: 'Video Ads' }
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
+        ]
       }
     ]
   };
+
+
 
   myChart.setOption(option);
   window.addEventListener('resize', handleResize);
