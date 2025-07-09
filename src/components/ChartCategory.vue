@@ -20,13 +20,13 @@
 
 <script setup lang="ts">
 import { defineProps, type PropType } from 'vue';
-import { charts } from "../chartsCollection/collection.ts";
+import { charts } from "../utils/collection.ts";
 
 // 定义图表类型
 export type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
 
 // 定义 props
-const props = defineProps({
+defineProps({
   category: {
     type: String as PropType<ChartType>,
     required: true
