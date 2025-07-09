@@ -14,7 +14,6 @@ interface ChartConfig {
     name: string;
     description: string;
     component: Component;
-    src: string;
     chartName: string;
 }
 // 图表集合类型
@@ -25,15 +24,13 @@ export const charts: ChartsCollection = {
             name: '基础柱状图',
             description: 'Basic Bar',
             component: BasicBar,
-            src: 'coverImages/bar/basicBar.png',
             chartName: 'basicBar'
         },
         {
             name: '坐标轴刻度与标签对齐',
             description: 'Axis Align with Tick',
             component: AxisAlignwithTick,
-            src: 'coverImages/bar/axisAlignwithTick.png',
-            chartName: 'basicBar'
+            chartName: 'axisAlignwithTick'
         },
     ],
     line: [
@@ -41,14 +38,12 @@ export const charts: ChartsCollection = {
             name: '基础折线图',
             description: 'Basic Line Chart',
             component: BasicLine,
-            src: 'coverImages/line/basicLine.png',
             chartName: 'basicLine'
         },
         {
             name: '堆叠折线图',
             description: 'Stacked Line Chart',
             component: StackLine,
-            src: 'coverImages/line/stackLine.png',
             chartName: 'stackLine'
         },
     ],
@@ -57,7 +52,6 @@ export const charts: ChartsCollection = {
             name: '基础散点图',
             description: 'Basic Scatter Chart',
             component: BasicScatter,
-            src: 'coverImages/scatter/basicScatter.png',
             chartName: 'basicScatter'
         },
     ],
@@ -66,7 +60,6 @@ export const charts: ChartsCollection = {
             name: '基础饼图',
             description: 'Basic Pie Chart',
             component: BasicPie,
-            src: 'coverImages/pie/basicPie.png',
             chartName: 'basicPie'
         },
     ],
@@ -75,7 +68,6 @@ export const charts: ChartsCollection = {
             name: '基础雷达图',
             description: 'Basic Pie Chart',
             component: BasicPie,
-            src: 'coverImages/pie/basicPie.png',
             chartName: 'basicPie'
         }
     ],
