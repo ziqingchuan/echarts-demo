@@ -21,15 +21,34 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, onMounted, watch } from 'vue'
+import {defineProps, ref, onMounted, watch, nextTick} from 'vue'
 import hljs from '../utils/highlight.ts'
+import {loadChartCode} from "../utils/loadChartCode.ts";
 
 const props = defineProps({
-  chartComponent: Object,
-  chartCode: String
+  chartComponent: {
+    type: Object,
+    required: true
+  },
+  chartType: {  // 如 'bar', 'line' 等
+    type: String,
+    required: true
+  },
+  chartName: {  // 如 'basicBar', 'stackedLine' 等
+    type: String,
+    required: true
+  }
 })
 
 const codeBlock = ref<HTMLElement | null>(null)
+const chartCode = ref<string>('')
+
+// 加载示例代码
+const loadCode = async () => {
+  chartCode.value = await loadChartCode(props.chartType, props.chartName)
+  await nextTick() // 等待DOM更新
+  highlightCode()
+}
 
 // 高亮代码函数
 const highlightCode = () => {
@@ -38,11 +57,11 @@ const highlightCode = () => {
   }
 }
 
-// 组件挂载时高亮代码
-onMounted(highlightCode)
+// 组件挂载时加载代码
+onMounted(loadCode)
 
-// 监听代码变化重新高亮
-watch(() => props.chartCode, highlightCode)
+// 监听示例名称变化
+watch(() => props.exampleName, loadCode)
 </script>
 
 <style scoped>

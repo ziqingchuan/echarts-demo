@@ -6,7 +6,7 @@
           v-for="chart in charts[category]"
           :key="chart.name"
           class="chart-card"
-          @click="$emit('select-chart', chart.component, chart.code)"
+          @click="$emit('select-chart', chart.component, chart.chartName)"
       >
         <div class="chart-preview">
           <img :src="chart.src" class="chart-preview-img" alt="preview"/>
@@ -23,7 +23,7 @@ import { defineProps, type PropType } from 'vue';
 import { charts } from "../chartsCollection/collection.ts";
 
 // 定义图表类型
-export type ChartType = 'bar' | 'line' | 'scatter' | 'pie';
+export type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
 
 // 定义 props
 const props = defineProps({
@@ -38,7 +38,8 @@ const categoryLabels: Record<ChartType, string> = {
   bar: '柱状图',
   line: '折线图',
   scatter: '散点图',
-  pie: '饼图'
+  pie: '饼图',
+  radar: '雷达图'
 };
 
 </script>

@@ -27,7 +27,8 @@
       <ChartDetail
           v-else
           :chart-component="currentChart"
-          :chart-code="currentCode"
+          :chart-type="currentType"
+          :chart-name="currentChartName"
           @back="currentChart = null"
       />
     </div>
@@ -40,16 +41,17 @@ import ChartCategory from '../components/ChartCategory.vue';
 import ChartDetail from '../components/ChartDetail.vue';
 
 // 定义图表类型的联合类型
-type ChartType = 'bar' | 'line' | 'scatter' | 'pie';
+type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
 
 // 图表类型定义
-const chartTypes: ChartType[] = ['bar', 'line', 'scatter', 'pie'];
-const currentCode = ref<string>('');
+const chartTypes: ChartType[] = ['bar', 'line', 'scatter', 'pie', 'radar'];
+const currentChartName = ref<string>('');
 const typeLabels: Record<ChartType, string> = {
   bar: '柱状图',
   line: '折线图',
   scatter: '散点图',
-  pie: '饼图'
+  pie: '饼图',
+  radar: '雷达图',
 };
 
 // 当前选中的图表类型（默认柱状图）
@@ -64,9 +66,9 @@ const selectType = (type: ChartType) => {
 };
 
 // 选择具体图表
-const selectChart = (chartComponent: Component, chatCode: string) => {
+const selectChart = (chartComponent: Component, chartName: string) => {
   currentChart.value = markRaw(chartComponent);
-  currentCode.value = chatCode;
+  currentChartName.value = chartName;
 };
 </script>
 

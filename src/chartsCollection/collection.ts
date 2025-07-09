@@ -6,16 +6,8 @@ import StackLine from "../charts/line/stackLine.vue";
 import BasicScatter from "../charts/scatter/basicScatter.vue";
 import BasicPie from "../charts/pie/basicPie.vue";
 
-import {basicBar} from "../codes/bar/basicBar.ts";
-import {axisAlignwithTick} from "../codes/bar/axisAlignwithTick.ts";
-import {basicLine} from "../codes/line/basicLine.ts";
-import {stackLine} from "../codes/line/stackLine.ts";
-import {basicScatter} from "../codes/scatter/basicScatter.ts";
-import {basicPie} from "../codes/pie/basicPie.ts";
-
-
 // 定义图表类型
-export type ChartType = 'bar' | 'line' | 'scatter' | 'pie';
+export type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
 
 // 图表配置类型
 interface ChartConfig {
@@ -23,7 +15,7 @@ interface ChartConfig {
     description: string;
     component: Component;
     src: string;
-    code: string;
+    chartName: string;
 }
 // 图表集合类型
 type ChartsCollection = Record<ChartType, ChartConfig[]>;
@@ -34,14 +26,14 @@ export const charts: ChartsCollection = {
             description: 'Basic Bar',
             component: BasicBar,
             src: 'coverImages/bar/basicBar.png',
-            code: basicBar
+            chartName: 'basicBar'
         },
         {
             name: '坐标轴刻度与标签对齐',
             description: 'Axis Align with Tick',
             component: AxisAlignwithTick,
             src: 'coverImages/bar/axisAlignwithTick.png',
-            code: axisAlignwithTick
+            chartName: 'basicBar'
         },
     ],
     line: [
@@ -50,14 +42,14 @@ export const charts: ChartsCollection = {
             description: 'Basic Line Chart',
             component: BasicLine,
             src: 'coverImages/line/basicLine.png',
-            code: basicLine
+            chartName: 'basicLine'
         },
         {
             name: '堆叠折线图',
             description: 'Stacked Line Chart',
             component: StackLine,
             src: 'coverImages/line/stackLine.png',
-            code: stackLine
+            chartName: 'stackLine'
         },
     ],
     scatter: [
@@ -66,7 +58,7 @@ export const charts: ChartsCollection = {
             description: 'Basic Scatter Chart',
             component: BasicScatter,
             src: 'coverImages/scatter/basicScatter.png',
-            code: basicScatter
+            chartName: 'basicScatter'
         },
     ],
     pie: [
@@ -75,7 +67,16 @@ export const charts: ChartsCollection = {
             description: 'Basic Pie Chart',
             component: BasicPie,
             src: 'coverImages/pie/basicPie.png',
-            code: basicPie
+            chartName: 'basicPie'
         },
-    ]
+    ],
+    radar: [
+        {
+            name: '基础雷达图',
+            description: 'Basic Pie Chart',
+            component: BasicPie,
+            src: 'coverImages/pie/basicPie.png',
+            chartName: 'basicPie'
+        }
+    ],
 };
