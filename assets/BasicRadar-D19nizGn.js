@@ -1,6 +1,6 @@
 const r=`<template>\r
   <div class="chart-wrapper">\r
-    <h2>雷达图示例</h2>\r
+    <h2>基础雷达图</h2>\r
     <div ref="chart" class="chart"></div>\r
   </div>\r
 </template>\r

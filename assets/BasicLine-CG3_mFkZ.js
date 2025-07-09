@@ -1,6 +1,6 @@
 const r=`<template>\r
   <div class="chart-wrapper">\r
-    <h2>柱状图示例</h2>\r
+    <h2>基础折线图</h2>\r
     <div ref="chart" class="chart"></div>\r
   </div>\r
 </template>\r
@@ -20,35 +20,19 @@ onMounted(() => {\r
   if (!chart.value) return;\r
 \r
   myChart = echarts.init(chart.value);\r
+\r
   const option = {\r
-    tooltip: {\r
-      trigger: 'axis',\r
-      axisPointer: { type: 'shadow' }\r
-    },\r
-    grid: {\r
-      left: '3%',\r
-      right: '4%',\r
-      bottom: '3%',\r
-      containLabel: true\r
-    },\r
     xAxis: {\r
       type: 'category',\r
-      data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']\r
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\r
     },\r
     yAxis: {\r
       type: 'value'\r
     },\r
     series: [\r
       {\r
-        name: '销量',\r
-        type: 'bar',\r
-        data: [120, 200, 150, 80, 70, 110],\r
-        itemStyle: {\r
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [\r
-            { offset: 0, color: '#83bff6' },\r
-            { offset: 1, color: '#188df0' }\r
-          ])\r
-        }\r
+        data: [150, 230, 224, 218, 135, 147, 260],\r
+        type: 'line'\r
       }\r
     ]\r
   };\r

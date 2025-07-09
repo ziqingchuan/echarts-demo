@@ -1,6 +1,6 @@
 const r=`<template>\r
   <div class="chart-wrapper">\r
-    <h2>散点图示例</h2>\r
+    <h2>基础饼图</h2>\r
     <div ref="chart" class="chart"></div>\r
   </div>\r
 </template>\r
@@ -21,48 +21,36 @@ onMounted(() => {\r
 \r
   myChart = echarts.init(chart.value);\r
 \r
-  // 生成模拟数据\r
-  const data = [];\r
-  for (let i = 0; i < 100; i++) {\r
-    data.push([\r
-      Math.random() * 100,\r
-      Math.random() * 100,\r
-      Math.floor(Math.random() * 50) + 10 // 气泡大小\r
-    ]);\r
-  }\r
-\r
   const option = {\r
+\r
     tooltip: {\r
-      position: 'top'\r
+      trigger: 'item'\r
     },\r
-    grid: {\r
-      left: '3%',\r
-      right: '7%',\r
-      bottom: '7%',\r
-      containLabel: true\r
+    legend: {\r
+      orient: 'vertical',\r
+      left: 'left'\r
     },\r
-    xAxis: {\r
-      type: 'value',\r
-      scale: true\r
-    },\r
-    yAxis: {\r
-      type: 'value',\r
-      scale: true\r
-    },\r
-    series: [{\r
-      name: '数据',\r
-      type: 'scatter',\r
-      data: data,\r
-      itemStyle: {\r
-        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{\r
-          offset: 0,\r
-          color: 'rgb(251, 118, 123)'\r
-        }, {\r
-          offset: 1,\r
-          color: 'rgb(204, 46, 72)'\r
-        }])\r
+    series: [\r
+      {\r
+        name: 'Access From',\r
+        type: 'pie',\r
+        radius: '50%',\r
+        data: [\r
+          { value: 1048, name: 'Search Engine' },\r
+          { value: 735, name: 'Direct' },\r
+          { value: 580, name: 'Email' },\r
+          { value: 484, name: 'Union Ads' },\r
+          { value: 300, name: 'Video Ads' }\r
+        ],\r
+        emphasis: {\r
+          itemStyle: {\r
+            shadowBlur: 10,\r
+            shadowOffsetX: 0,\r
+            shadowColor: 'rgba(0, 0, 0, 0.5)'\r
+          }\r
+        }\r
       }\r
-    }]\r
+    ]\r
   };\r
 \r
   myChart.setOption(option);\r

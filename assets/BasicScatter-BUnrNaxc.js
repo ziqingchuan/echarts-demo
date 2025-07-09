@@ -1,6 +1,6 @@
 const r=`<template>\r
   <div class="chart-wrapper">\r
-    <h2>折线图示例</h2>\r
+    <h2>基础散点图</h2>\r
     <div ref="chart" class="chart"></div>\r
   </div>\r
 </template>\r
@@ -21,20 +21,48 @@ onMounted(() => {\r
 \r
   myChart = echarts.init(chart.value);\r
 \r
+  // 生成模拟数据\r
+  const data = [];\r
+  for (let i = 0; i < 100; i++) {\r
+    data.push([\r
+      Math.random() * 100,\r
+      Math.random() * 100,\r
+      Math.floor(Math.random() * 50) + 10 // 气泡大小\r
+    ]);\r
+  }\r
+\r
   const option = {\r
+    tooltip: {\r
+      position: 'top'\r
+    },\r
+    grid: {\r
+      left: '3%',\r
+      right: '7%',\r
+      bottom: '7%',\r
+      containLabel: true\r
+    },\r
     xAxis: {\r
-      type: 'category',\r
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\r
+      type: 'value',\r
+      scale: true\r
     },\r
     yAxis: {\r
-      type: 'value'\r
+      type: 'value',\r
+      scale: true\r
     },\r
-    series: [\r
-      {\r
-        data: [150, 230, 224, 218, 135, 147, 260],\r
-        type: 'line'\r
+    series: [{\r
+      name: '数据',\r
+      type: 'scatter',\r
+      data: data,\r
+      itemStyle: {\r
+        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{\r
+          offset: 0,\r
+          color: 'rgb(251, 118, 123)'\r
+        }, {\r
+          offset: 1,\r
+          color: 'rgb(204, 46, 72)'\r
+        }])\r
       }\r
-    ]\r
+    }]\r
   };\r
 \r
   myChart.setOption(option);\r
