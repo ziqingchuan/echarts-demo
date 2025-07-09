@@ -61,7 +61,7 @@ const highlightCode = () => {
 onMounted(loadCode)
 
 // 监听示例名称变化
-watch(() => props.exampleName, loadCode)
+watch(() => props.chartName, loadCode)
 </script>
 
 <style scoped>
