@@ -52,7 +52,18 @@ onMounted(() => {\r
         name: 'Direct',\r
         type: 'bar',\r
         barWidth: '60%',\r
-        data: [10, 52, 200, 334, 390, 330, 220]\r
+        showBackground: true,\r
+        backgroundStyle: {\r
+          color: 'rgba(180, 180, 180, 0.2)'\r
+        },\r
+        data: [10, 52, 200, 334,\r
+          {\r
+            value: 390,\r
+            itemStyle: {\r
+              color: '#a90000'\r
+            }\r
+          },\r
+            330, 220]\r
       }\r
     ]\r
   };\r
