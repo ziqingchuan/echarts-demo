@@ -1,10 +1,20 @@
 import type { Component } from "vue";
-import BasicBar from "../charts/bar/basicBar.vue";
-import AxisAlignwithTick from "../charts/bar/axisAlignwithTick.vue";
-import BasicLine from "../charts/line/basicLine.vue";
-import StackLine from "../charts/line/stackLine.vue";
-import BasicScatter from "../charts/scatter/basicScatter.vue";
-import BasicPie from "../charts/pie/basicPie.vue";
+
+import BasicBar from "../charts/bar/BasicBar.vue";
+import AxisAlignwithTick from "../charts/bar/AxisAlignwithTick.vue";
+
+import BasicLine from "../charts/line/BasicLine.vue";
+import StackLine from "../charts/line/StackLine.vue";
+import StackedAreaChart from "../charts/line/StackedAreaChart.vue";
+import FunctionPlot from "../charts/line/FunctionPlot.vue";
+
+
+import BasicScatter from "../charts/scatter/BasicScatter.vue";
+
+import BasicPie from "../charts/pie/BasicPie.vue";
+
+import BasicRadar from "../charts/radar/BasicRadar.vue";
+import AQIRadar from "../charts/radar/AQIRadar.vue";
 
 // 定义图表类型
 export type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
@@ -24,13 +34,13 @@ export const charts: ChartsCollection = {
             name: '基础柱状图',
             description: 'Basic Bar',
             component: BasicBar,
-            chartName: 'basicBar'
+            chartName: 'BasicBar'
         },
         {
             name: '坐标轴刻度与标签对齐',
             description: 'Axis Align with Tick',
             component: AxisAlignwithTick,
-            chartName: 'axisAlignwithTick'
+            chartName: 'AxisAlignwithTick'
         },
     ],
     line: [
@@ -38,13 +48,25 @@ export const charts: ChartsCollection = {
             name: '基础折线图',
             description: 'Basic Line Chart',
             component: BasicLine,
-            chartName: 'basicLine'
+            chartName: 'BasicLine'
         },
         {
             name: '堆叠折线图',
             description: 'Stacked Line Chart',
             component: StackLine,
-            chartName: 'stackLine'
+            chartName: 'StackLine'
+        },
+        {
+            name: '堆叠面积图',
+            description: 'Stacked Area Chart',
+            component: StackedAreaChart,
+            chartName: 'StackedAreaChart'
+        },
+        {
+            name: '函数绘图',
+            description: 'Function Plot',
+            component: FunctionPlot,
+            chartName: 'FunctionPlot'
         },
     ],
     scatter: [
@@ -52,7 +74,7 @@ export const charts: ChartsCollection = {
             name: '基础散点图',
             description: 'Basic Scatter Chart',
             component: BasicScatter,
-            chartName: 'basicScatter'
+            chartName: 'BasicScatter'
         },
     ],
     pie: [
@@ -60,15 +82,21 @@ export const charts: ChartsCollection = {
             name: '基础饼图',
             description: 'Basic Pie Chart',
             component: BasicPie,
-            chartName: 'basicPie'
+            chartName: 'BasicPie'
         },
     ],
     radar: [
         {
             name: '基础雷达图',
-            description: 'Basic Pie Chart',
-            component: BasicPie,
-            chartName: 'basicPie'
-        }
+            description: 'Basic Radar Chart',
+            component: BasicRadar,
+            chartName: 'BasicRadar'
+        },
+        {
+            name: 'AQI雷达图',
+            description: 'AQI - Radar Chart',
+            component: AQIRadar,
+            chartName: 'AQIRadar'
+        },
     ],
 };

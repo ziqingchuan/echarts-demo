@@ -1,7 +1,7 @@
 <template>
   <div class="chart-detail">
     <button class="back-button" @click="$emit('back')">
-      &lt; 返回图表列表
+      返回图表列表
     </button>
 
     <div class="detail-container">
