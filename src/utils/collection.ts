@@ -13,9 +13,15 @@ import FunctionPlot from "../charts/line/FunctionPlot.vue";
 import DraggablePoints from "../charts/line/DraggablePoints.vue";
 // 散点图组件
 import BasicScatter from "../charts/scatter/BasicScatter.vue";
+import EffectScatterChart from "../charts/scatter/EffectScatterChart.vue";
+import ClusteringChart from "../charts/scatter/ClusteringChart.vue";
 // 饼图组件
 import BasicPie from "../charts/pie/BasicPie.vue";
 import DoughnutChart from "../charts/pie/DoughnutChart.vue";
+import NightingaleChart from "../charts/pie/NightingaleChart.vue";
+import CustomizedPie from "../charts/pie/CustomizedPie.vue";
+import TextureonPieChart from "../charts/pie/TextureonPieChart.vue";
+import ShareDataset from "../charts/pie/ShareDataset.vue";
 // 雷达图组件
 import BasicRadar from "../charts/radar/BasicRadar.vue";
 import AQIRadar from "../charts/radar/AQIRadar.vue";
@@ -99,6 +105,18 @@ export const charts: ChartsCollection = {
             component: BasicScatter,
             chartName: 'BasicScatter'
         },
+        {
+            name: '涟漪特效散点图',
+            description: 'Effect Scatter Chart',
+            component: EffectScatterChart,
+            chartName: 'EffectScatterChart'
+        },
+        {
+            name: '数据聚合图',
+            description: 'Clustering Chart',
+            component: ClusteringChart,
+            chartName: 'ClusteringChart'
+        },
     ],
     pie: [
         {
@@ -112,6 +130,30 @@ export const charts: ChartsCollection = {
             description: 'Doughnut Chart',
             component: DoughnutChart,
             chartName: 'DoughnutChart'
+        },
+        {
+            name: '南丁格尔玫瑰图',
+            description: 'Nightingale Chart',
+            component: NightingaleChart,
+            chartName: 'NightingaleChart'
+        },
+        {
+            name: '自定义样式饼图',
+            description: 'Customized Pie',
+            component: CustomizedPie,
+            chartName: 'CustomizedPie'
+        },
+        {
+            name: '自定义纹理饼图',
+            description: 'Texture on Pie Chart',
+            component: TextureonPieChart,
+            chartName: 'TextureonPieChart'
+        },
+        {
+            name: '联动与共享数据集',
+            description: 'Share Dataset',
+            component: ShareDataset,
+            chartName: 'ShareDataset'
         },
     ],
     radar: [
