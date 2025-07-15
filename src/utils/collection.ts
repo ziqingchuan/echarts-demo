@@ -5,6 +5,7 @@ import BasicBar from "../charts/bar/BasicBar.vue";
 import AxisAlignwithTick from "../charts/bar/AxisAlignwithTick.vue";
 import WaterfallChart from "../charts/bar/WaterfallChart.vue";
 import ClickableColumnChart from "../charts/bar/ClickableColumnChart.vue";
+import StackedColumnChart from "../charts/bar/StackedColumnChart.vue";
 // 折线图组件
 import BasicLine from "../charts/line/BasicLine.vue";
 import StackLine from "../charts/line/StackLine.vue";
@@ -63,6 +64,12 @@ export const charts: ChartsCollection = {
             description: 'Clickable Column Chart',
             component: ClickableColumnChart,
             chartName: 'ClickableColumnChart'
+        },
+        {
+            name: '堆叠柱状图',
+            description: 'Stacked Column Chart',
+            component: StackedColumnChart,
+            chartName: 'StackedColumnChart'
         },
     ],
     line: [

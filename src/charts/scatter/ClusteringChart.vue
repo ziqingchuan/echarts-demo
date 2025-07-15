@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import * as echarts from 'echarts';
+// @ts-ignore
 import ecStat from 'echarts-stat';
 import {clusteringChartData} from "../../consts/data/clusteringChart.ts";
 
@@ -17,7 +18,7 @@ let myChart: echarts.ECharts | null = null;
 const handleResize = () => {
   myChart?.resize();
 };
-
+// @ts-ignore
 echarts.registerTransform(ecStat.transform.clustering);
 
 const data = clusteringChartData;

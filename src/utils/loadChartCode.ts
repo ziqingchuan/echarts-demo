@@ -1,15 +1,18 @@
 export async function loadChartCode(chartType: string, chartName: string): Promise<string> {
     try {
-        // Vite 的动态导入，匹配 charts 下所有子目录中的 .vue 文件
-        const charts = import.meta.glob('../charts/**/*.vue', { as: 'raw' })
-        const chartPath = `../charts/${chartType}/${chartName}.vue`
+        const charts = import.meta.glob('../charts/**/*.vue', {
+            query: '?raw',
+            import: 'default'
+        });
 
-        if (charts[chartPath]) {
-            return await charts[chartPath]()
+        const chartPath = `../charts/${chartType}/${chartName}.vue`;
+
+        if (chartPath in charts) {
+            return await charts[chartPath]() as string;
         }
-        throw new Error(`Chart ${chartType}/${chartName} not found`)
+        throw new Error(`Chart ${chartType}/${chartName} not found`);
     } catch (error) {
-        console.error('Failed to load chart code:', error)
-        return `// Error loading chart: ${chartType}/${chartName}`
+        console.error('Failed to load chart code:', error);
+        return `// Error loading chart: ${chartType}/${chartName}`;
     }
 }
