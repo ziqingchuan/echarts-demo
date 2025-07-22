@@ -9,7 +9,7 @@
           @click="$emit('select-chart', chart.component, chart.chartName)"
       >
         <div class="chart-preview">
-          <img :src="'coverImages/' + category + '/' + chart.chartName + '.png'" class="chart-preview-img" alt="preview"/>
+          <img :src="'coverImages/' + category + '/' + chart.chartName + '.webp'" class="chart-preview-img" alt="preview"/>
         </div>
         <h3>{{ chart.name }}</h3>
         <p>{{ chart.description }}</p>

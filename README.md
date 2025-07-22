@@ -5,5 +5,5 @@
 1. 在`src/charts`内添加对应图表代码
 
 2. 在`src/chartsCollection/collection.ts`内添加图表配置信息
-3. 
+
 3. 在`public/coverImages`内添加对应图表的封面图片
