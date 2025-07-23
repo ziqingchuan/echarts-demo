@@ -16,6 +16,8 @@ import DraggablePoints from "../charts/line/DraggablePoints.vue";
 import BasicScatter from "../charts/scatter/BasicScatter.vue";
 import EffectScatterChart from "../charts/scatter/EffectScatterChart.vue";
 import ClusteringChart from "../charts/scatter/ClusteringChart.vue";
+import ScatterOnSingleAxis from "../charts/scatter/ScatterOnSingleAxis.vue";
+import AggregateScatterToBar from "../charts/scatter/AggregateScatterToBar.vue";
 // 饼图组件
 import BasicPie from "../charts/pie/BasicPie.vue";
 import DoughnutChart from "../charts/pie/DoughnutChart.vue";
@@ -26,6 +28,7 @@ import ShareDataset from "../charts/pie/ShareDataset.vue";
 // 雷达图组件
 import BasicRadar from "../charts/radar/BasicRadar.vue";
 import AQIRadar from "../charts/radar/AQIRadar.vue";
+
 
 // 定义图表类型
 export type ChartType = 'bar' | 'line' | 'scatter' | 'pie' | 'radar';
@@ -123,6 +126,18 @@ export const charts: ChartsCollection = {
             description: 'Clustering Chart',
             component: ClusteringChart,
             chartName: 'ClusteringChart'
+        },
+        {
+            name: '单轴散点图',
+            description: 'Scatter on Single Axis',
+            component: ScatterOnSingleAxis,
+            chartName: 'ScatterOnSingleAxis'
+        },
+        {
+            name: '散点图聚合为柱状图',
+            description: 'Aggregate Scatter to Bar',
+            component: AggregateScatterToBar,
+            chartName: 'AggregateScatterToBar'
         },
     ],
     pie: [
